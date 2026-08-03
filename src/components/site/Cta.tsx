@@ -24,6 +24,7 @@ export function CtaLink({
   className,
   children,
   ariaLabel,
+  ...props
 }: {
   to?: string;
   href?: string;
@@ -31,16 +32,18 @@ export function CtaLink({
   className?: string;
   children: ReactNode;
   ariaLabel?: string;
-}) {
+} & React.AnchorHTMLAttributes<HTMLAnchorElement>)
+{
   const classes = cn(base, styles[variant], className);
 
   if (href) {
     const external = href.startsWith("http");
     return (
       <a
-        href={href}
-        className={classes}
-        aria-label={ariaLabel}
+  href={href}
+  className={classes}
+  aria-label={ariaLabel}
+  {...props}
         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         {children}
@@ -49,7 +52,12 @@ export function CtaLink({
   }
 
   return (
-    <Link to={to ?? "/"} className={classes} aria-label={ariaLabel}>
+    <Link
+  to={to ?? "/"}
+  className={classes}
+  aria-label={ariaLabel}
+  {...props}
+>
       {children}
     </Link>
   );

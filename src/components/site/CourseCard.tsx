@@ -53,13 +53,24 @@ export function CourseCard({ course }: { course: Course; compact?: boolean }) {
         </ul>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          <CtaLink to="/contact">Enroll Now</CtaLink>
-          <CtaLink href={course.brochure} variant="outline">
+          <CtaLink
+  to="/contact"
+  data-course={course.id}
+  data-action="enroll"
+>Enroll Now</CtaLink>
+          <CtaLink
+  href={course.brochure}
+  variant="outline"
+  data-course={course.id}
+  data-action="brochure"
+>
             <Download className="size-4" aria-hidden="true" /> Download Brochure
           </CtaLink>
 
           <button
-            type="button"
+  type="button"
+  data-course={course.id}
+  data-action="curriculum"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls={panelId}
