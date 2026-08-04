@@ -91,6 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Skill Volume" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: "https://www.skillvolume.com/" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -100,6 +101,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap",
       },
+      { rel: "canonical", href: "https://www.skillvolume.com/" },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
     scripts: [
